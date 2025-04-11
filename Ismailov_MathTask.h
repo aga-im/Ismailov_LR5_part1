@@ -7,12 +7,21 @@ using namespace std;
 
 bool UserInput(string input) {
     if (input.empty()) return false;
+    
+    
+    if (input[0] == '-') return false;
+    
+   
+    for (char c : input) {
+        if (!isdigit(c)) return false;
+    }
+    
     try {
-    int number = stoi(input);
-}   
-    catch(...)
-    {return false; }
-    return true;
+        int number = stoi(input);
+        return true;
+    } catch(...) {
+        return false;
+    }
 }
 void EnterDigit(int& varLink, const string& label){
     string raw_input;
